@@ -1,27 +1,33 @@
-import React, { useRef} from "react";
+import React from "react";
 
 
 const bodyStuff = () => {
-    const buttons = document.querySelectorAll(".ripple");
-  const body = document.querySelector("body");
-  const outsideRip = document.querySelector(".outsideRipple");
-  const randomGuyColors = ["red", "blue", "purple", "green"];
-  const otherGuys = ["camo", "pirate", "cyborg", "policeman"];
-  const scoreTitle = document.getElementById("scoreTitle");
-  const directions = document.getElementById("directions");
-  let score = Number(document.getElementById("score").innerText);
-  const players = [""];
-  const badGuys = [];
+  
   
   function newGame() {
+    const buttons = document.querySelectorAll(".ripple");
+    const body = document.querySelector("body");
+    
+    const randomGuyColors = ["red", "blue", "purple", "green"];
+     
+    const directions = document.getElementById("directions");
+    let score1 =  Number(document.getElementById("score").innerText);
+    let score = score1;
+    
+    const badGuys = [];
+
+    
+
+
     function new3Monsters() {
       for (let x = 0; x < 3; x++) {
         addMonster();
       }
     }
-    score =0;
-    new3Monsters();
-  
+    
+  new3Monsters();
+
+score =0;
     function addMonster() {
       const badGuy = document.createElement("button");
       badGuy.style.onclick = "addPoints()";
@@ -113,10 +119,10 @@ const bodyStuff = () => {
         const x = e.pageX;
         const y = e.pageY;
   
-        const cursorRight = e.target.offsetRight;
+         
         const cursorLeft = e.target.offsetLeft;
         const cursorTop = e.target.offsetTop;
-        const cursorBottom = e.target.offsetBottom;
+       
   
         const xInside = x - cursorLeft;
         const yInside = y - cursorTop;
@@ -170,16 +176,16 @@ const bodyStuff = () => {
   
           button.classList.add("butn");
           button.remove();
-  
+
           body.addEventListener("mousemove", function (e) {
             moveBadGuys();
             const x = e.pageX;
             const y = e.pageY;
   
-            const cursorRight = e.target.offsetRight;
+             
             const cursorLeft = e.target.offsetLeft;
             const cursorTop = e.target.offsetTop;
-            const cursorBottom = e.target.offsetBottom;
+             
   
             const xInside = x - cursorLeft;
             const yInside = y - cursorTop;
@@ -223,8 +229,9 @@ const bodyStuff = () => {
     function addPoints() {
       addMonster();
       let score = Number(document.getElementById("score").innerText);
-      if (score > 45) {
+      if (score > 96) {
         settime();
+        
         body.classList.remove("back");
         body.classList.add("lightning");
   
@@ -238,6 +245,7 @@ const bodyStuff = () => {
           baddie.remove();
         });
         body.classList.remove("back");
+        
         stopTheme();
         const MonsterDiv = document.getElementById("MonsterDiv");
         const newGameBtn = document.createElement("button");
@@ -266,9 +274,9 @@ const bodyStuff = () => {
     }
   
   function setTheme() {
-    var audio = document.getElementById("audioTheme");
-    audio.currentTime = 0;
-    audio.play();
+    var audio1 = document.getElementById("audioTheme");
+    audio1.currentTime = 0;
+    audio1.play();
   }
   
   function stopTheme() {

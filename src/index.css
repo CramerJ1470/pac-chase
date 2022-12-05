@@ -22,7 +22,6 @@ button {
 	background-size: 300px 300px;
 	background-repeat: no-repeat;
 	background-position: center;
-
 	background-color: transparent;
 	color: #fff;
 	border: none;
@@ -161,5 +160,3 @@ body.lightning {
 	background-color: black;
 	color: rgb(189, 48, 255);
 }
-
-
