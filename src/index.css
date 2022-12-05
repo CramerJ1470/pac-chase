@@ -1,13 +1,165 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+* {
+	box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+	background-color: #000;
+	font-family: "Roboto", sans-serif;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	overflow: hidden;
+	margin: 0;
+	position: relative;
 }
+
+button {
+	background-image: url("fxVE.gif");
+	background-size: 300px 300px;
+	background-repeat: no-repeat;
+	background-position: center;
+
+	background-color: transparent;
+	color: #fff;
+	border: none;
+	font-size: 14px;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	padding: 20px 30px;
+	overflow: hidden;
+	margin: 10px 0;
+	position: relative;
+	width: 500px;
+	height: 300px;
+}
+
+button:focus {
+	outline: none;
+}
+
+button .circle {
+	position: absolute;
+	background-color: rgb(193, 42, 136);
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	transform: translate(-50%, -50%) scale(0);
+	animation: scale 0.7s ease-out;
+	overflow: hidden;
+}
+
+@keyframes scale {
+	to {
+		transform: translate(-50%, -50%) scale(2.5);
+		opacity: 0;
+	}
+}
+
+button .circle.red {
+	background-color: rgb(187, 49, 255);
+}
+
+button .circle.yellow {
+	background-color: rgb(189, 48, 255);
+}
+button .circle.green {
+	background-color: rgb(191, 45, 194);
+}
+
+body.back {
+	background-image: url("fxVE.gif");
+
+	background-repeat: no-repeat;
+	background-size: auto 100%;
+	background-position: center;
+}
+
+button.butn {
+	background-color: transparent;
+	border: none;
+	color: #fff;
+	font-size: 14px;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	padding: 20px 30px;
+	overflow: visible;
+	margin: 10px 0;
+	position: relative;
+	width: 500px;
+	height: 300px;
+}
+
+body .circle {
+	position: absolute;
+	background-color: blue;
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	transform: translate(-25%, -25%) scale(0);
+	animation: scale 0.3s ease-out;
+}
+
+body .circle.red {
+	background-color: red;
+}
+
+body .circle.yellow {
+	background-color: yellow;
+}
+body .circle.green {
+	background-color: green;
+}
+
+.scoreBoard {
+	position: absolute;
+	top: 10px;
+	right: 200px;
+	height: auto;
+	font-size: 30px;
+	font-weight: bolder;
+	width: 50px;
+	text-align: center;
+	padding: auto 5px;
+	background-color: black;
+	color: rgb(189, 48, 255);
+}
+
+body.lightning {
+	background-image: url("boom-lightning.gif");
+	background-repeat: no-repeat;
+	background-size: auto 100%;
+	background-position: center;
+}
+
+.score {
+	position: absolute;
+	top: 10px;
+	right: 250px;
+	height: auto;
+	font-size: 30px;
+	font-weight: bolder;
+	width: auto;
+	text-align: center;
+	padding: auto 5px;
+	background-color: black;
+	color: rgb(189, 48, 255);
+}
+
+.direction {
+	position: absolute;
+	bottom: 10px;
+	height: auto;
+	font-size: 30px;
+	font-weight: bolder;
+	width: auto;
+	text-align: center;
+	padding: auto 5px;
+	background-color: black;
+	color: rgb(189, 48, 255);
+}
+
+
