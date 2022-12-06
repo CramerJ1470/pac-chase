@@ -168,7 +168,7 @@ const bodyStuff = () => {
 			setTheme();
 			body.classList.add("back", "circle");
 			buttons[0].classList.add("butn");
-			visibility = "hidden";
+			
 
 			body.addEventListener("mousemove", function (e) {
 				moveBadGuys();
