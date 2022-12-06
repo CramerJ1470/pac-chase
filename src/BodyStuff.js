@@ -1,26 +1,29 @@
 import React from "react";
+import "../src/index.css";
+
+const buttons = document.querySelectorAll(".ripple");
+const body = document.querySelector("body");
+const randomGuyColors = [
+	"red",
+	"blue",
+	"purple",
+	"green",
+	"camo",
+	"ghost",
+	"cyborg",
+	"viking",
+];
+
+const directions = document.getElementById("directions");
+const score = document.getElementById("score");
 
 const bodyStuff = () => {
+	let score1 = +score.innerText;
+
 	function newGame() {
-		const buttons = document.querySelectorAll(".ripple");
-		const body = document.querySelector("body");
-    
+		document.getElementById("score").innerText = +score1;
 
-		const randomGuyColors = [
-			"red",
-			"blue",
-			"purple",
-			"green",
-			"camo",
-			"ghost",
-			"cyborg",
-			"viking",
-		];
-
-		const directions = document.getElementById("directions");
-		let score1 = Number(document.getElementById("score").innerText);
-		let score = score1;
-
+		score1 = 0;
 		const badGuys = [];
 
 		function new3Monsters() {
@@ -29,12 +32,8 @@ const bodyStuff = () => {
 			}
 		}
 
-		new3Monsters();
-  
-
-		score = 0;
 		function addMonster() {
-			const badGuy = document.createElement("button");
+			let badGuy = document.createElement("button");
 			badGuy.style.onclick = "addPoints()";
 			badGuy.classList.add("badGuy");
 
@@ -119,8 +118,60 @@ const bodyStuff = () => {
 			}
 		}
 
-		buttons.forEach((button) => {
-			button.addEventListener("mousemove", function (e) {
+		buttons[0].addEventListener("mousemove", function (e) {
+			const x = e.pageX;
+			const y = e.pageY;
+
+			const cursorLeft = e.target.offsetLeft;
+			const cursorTop = e.target.offsetTop;
+
+			const xInside = x - cursorLeft;
+			const yInside = y - cursorTop;
+
+			const circle1 = document.createElement("span");
+			const circle2 = document.createElement("span");
+			const circle3 = document.createElement("span");
+			const circle4 = document.createElement("span");
+
+			circle1.classList.add("circle", "red");
+			circle2.classList.add("circle", "yellow");
+			circle3.classList.add("circle", "green");
+			circle4.classList.add("circle");
+
+			circle1.style.top = yInside + 2 + "px";
+			circle1.style.left = xInside + 2 + "px";
+			circle2.style.top = yInside + 5 + "px";
+			circle2.style.left = xInside + 5 + "px";
+			circle3.style.top = yInside + 8 + "px";
+			circle3.style.left = xInside + 8 + "px";
+			circle4.style.top = yInside + 11 + "px";
+			circle4.style.left = xInside + 11 + "px";
+
+			this.appendChild(circle1);
+			this.appendChild(circle2);
+			this.appendChild(circle3);
+			this.appendChild(circle4);
+
+			setTimeout(() => {
+				circle4.remove();
+				circle3.remove();
+				circle2.remove();
+				circle1.remove();
+			}, 500);
+		});
+
+		buttons[0].addEventListener("dblclick", function (e) {
+			score1 = 0;
+			directions.innerText = "";
+			new3Monsters();
+			buttons[0].style.visibility = "hidden";
+			setTheme();
+			body.classList.add("back", "circle");
+			buttons[0].classList.add("butn");
+			visibility = "hidden";
+
+			body.addEventListener("mousemove", function (e) {
+				moveBadGuys();
 				const x = e.pageX;
 				const y = e.pageY;
 
@@ -159,112 +210,57 @@ const bodyStuff = () => {
 					circle3.remove();
 					circle2.remove();
 					circle1.remove();
-				}, 500);
-			});
-		});
-		let x = false;
-		buttons.forEach((button) => {
-			button.addEventListener("click", function (e) {
-				directions.innerText = "";
-
-				setTheme();
-				if (x === true) {
-					body.classList.remove("back", "circle");
-
-					button.classList.remove("butn");
-
-					x = false;
-				} else if (x === false) {
-					body.classList.add("back", "circle");
-
-					button.classList.add("butn");
-					button.remove();
-
-					body.addEventListener("mousemove", function (e) {
-						moveBadGuys();
-						const x = e.pageX;
-						const y = e.pageY;
-
-						const cursorLeft = e.target.offsetLeft;
-						const cursorTop = e.target.offsetTop;
-
-						const xInside = x - cursorLeft;
-						const yInside = y - cursorTop;
-
-						const circle1 = document.createElement("span");
-						const circle2 = document.createElement("span");
-						const circle3 = document.createElement("span");
-						const circle4 = document.createElement("span");
-
-						circle1.classList.add("circle", "red");
-						circle2.classList.add("circle", "yellow");
-						circle3.classList.add("circle", "green");
-						circle4.classList.add("circle");
-
-						circle1.style.top = yInside + 2 + "px";
-						circle1.style.left = xInside + 2 + "px";
-						circle2.style.top = yInside + 5 + "px";
-						circle2.style.left = xInside + 5 + "px";
-						circle3.style.top = yInside + 8 + "px";
-						circle3.style.left = xInside + 8 + "px";
-						circle4.style.top = yInside + 11 + "px";
-						circle4.style.left = xInside + 11 + "px";
-
-						this.appendChild(circle1);
-						this.appendChild(circle2);
-						this.appendChild(circle3);
-						this.appendChild(circle4);
-
-						setTimeout(() => {
-							circle4.remove();
-							circle3.remove();
-							circle2.remove();
-							circle1.remove();
-						}, 150);
-					});
-					x = true;
-				}
+				}, 150);
 			});
 		});
 
 		function addPoints() {
-			
-			let score = Number(document.getElementById("score").innerText);
-			if (score > 96) {
-				settime();
-
+			if (score1 >= 100) {
+				console.log(1);
 				body.classList.remove("back");
+				console.log(2);
 				body.classList.add("lightning");
-
+				console.log(`buttons[0]: `, buttons[0]);
 				setTimeout(() => {
 					body.classList.remove("lightning");
 				}, 250);
+				settime();
+				buttons[0].classList.add("button");
+				buttons[0].style.visibility = "visible";
 
 				let killTheMonsters = document.querySelectorAll(".badGuy");
 
 				killTheMonsters.forEach((baddie) => {
 					baddie.remove();
 				});
-				body.classList.remove("back");
+				console.log(4);
+				buttons[0].classList.remove("butn");
+				console.log(5);
+				///;
+
+				console.log(`buttons[0]: `, buttons[0]);
 
 				stopTheme();
-				const MonsterDiv = document.getElementById("MonsterDiv");
-				const newGameBtn = document.createElement("button");
-				newGameBtn.classList.add("button");
-				newGameBtn.innerText = "WellDone! \n Play Again?";
-				newGameBtn.addEventListener("dblclick", function () {
-					newGameBtn.remove();
+
+				buttons[0].innerText =
+					"WellDone! \n Play Again? \n DoubleClick";
+				buttons[0].addEventListener("dblclick", function () {
 					body.classList.add("back");
+					buttons[0].classList.add("butn");
+					score1 = 0;
+					document.getElementById("score").innerText = score1;
+					console.log(`buttons[0]: `, buttons[0]);
+					buttons.style.visibility = "hidden";
+
 					newGame();
 				});
 				directions.innerText =
 					"Click on the monsters to get points upto 100";
-				MonsterDiv.appendChild(newGameBtn);
-				document.getElementById("score").innerText = score;
+				document.getElementById("score").innerText = score1;
 			} else {
-        addMonster();
-				score += 5;
-				document.getElementById("score").innerText = score;
+				addMonster();
+				score1 += 5;
+				document.getElementById("score").innerText = score1;
 			}
 		}
 		function settime() {
@@ -290,5 +286,4 @@ const bodyStuff = () => {
 
 	return <div id="hello"></div>;
 };
-
 export default bodyStuff;

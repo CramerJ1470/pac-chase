@@ -77,7 +77,7 @@ body.back {
 	background-position: center;
 }
 
-button.butn {
+button .butn {
 	background-color: transparent;
 	border: none;
 	color: #fff;
@@ -128,7 +128,7 @@ body .circle.green {
 }
 
 body.lightning {
-	background-image: url("boom-lightning.gif");
+	background-image: url("../public/boom-lightning.gif");
 	background-repeat: no-repeat;
 	background-size: auto 100%;
 	background-position: center;

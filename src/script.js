@@ -238,7 +238,7 @@ const buttons = document.querySelectorAll(".ripple");
         const MonsterDiv = document.getElementById("MonsterDiv");
         const newGameBtn = document.createElement("button");
         newGameBtn.classList.add("button");
-        newGameBtn.innerText = "WellDone! \n Play Again?";
+        newGameBtn.innerText = "WellDone! \n Play Again? \n doubleClick to start";
         newGameBtn.addEventListener("click", function () {
           newGameBtn.remove();
           body.classList.add("back");
