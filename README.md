@@ -1,6 +1,12 @@
-# Getting Started with Create React App
+# Pac-Chase is a cute little starter game where you click on monsters to increase score to 100!
+
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+many of the ghosts which are .png files are from http://res.freestockphotos.biz/
+
+audio : https://elements.envato.com/audio/
 
 ## Available Scripts
 
