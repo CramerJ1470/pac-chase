@@ -168,7 +168,6 @@ const bodyStuff = () => {
 			setTheme();
 			body.classList.add("back", "circle");
 			buttons[0].classList.add("butn");
-			
 
 			body.addEventListener("mousemove", function (e) {
 				moveBadGuys();
