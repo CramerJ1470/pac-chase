@@ -11,7 +11,7 @@ body {
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	height: 100vh;
+	height: 80vh;
 	overflow: hidden;
 	margin: 0;
 	position: relative;
@@ -32,8 +32,8 @@ button {
 	overflow: hidden;
 	margin: 10px 0;
 	position: relative;
-	width: 500px;
-	height: 300px;
+	width: 50vw;
+	height: 50vh;
 }
 
 button:focus {
