@@ -41,13 +41,13 @@ const bodyStuff = () => {
 			badGuy.classList.add("badGuy");
 
 			let guyColor = randomGuyColors[Math.floor(Math.random() * 8)];
-			badGuy.style.backgroundImage = `url(./${guyColor}.png)`;
-			let right = Math.floor(Math.random() * 200) + 700;
+			badGuy.style.backgroundImage = `url("./${guyColor}.jpg")`;
+			let right = Math.floor(Math.random() * 18) + 50;
 
-			badGuy.style.right = `${right}px`;
-			let bottom = Math.floor(Math.random() * 200) + 600;
+			badGuy.style.right = `${right}%`;
+			let bottom = Math.floor(Math.random() * 18) + 30;
 
-			badGuy.style.bottom = `${bottom}px`;
+			badGuy.style.bottom = `${bottom}%`;
 			badGuy.style.backgroundSize = "cover";
 			badGuy.style.backgroundRepeat = "no-repeat";
 			badGuy.style.position = "absolute";
@@ -70,7 +70,7 @@ const bodyStuff = () => {
 
 				let moreThanOneDir = +Math.random().toFixed(2);
 
-				let distance = Math.floor(Math.random() * 100);
+				let distance = Math.floor(Math.random() * 200);
 				if (moreThanOneDir < 0.5) {
 					let dist = distance * Number(vert);
 
@@ -89,14 +89,14 @@ const bodyStuff = () => {
 
 			changeVert = changeVert.slice(0, changeVert.length - 2);
 			changeVert = Number(changeVert) + distance;
-			if (changeVert < 100) {
+			if (changeVert < 0) {
+				changeVert = 0;
+				baddie.style.bottom = changeVert.toString() + "%";
+			} else if (changeVert > 100) {
 				changeVert = 100;
-				baddie.style.bottom = changeVert.toString() + "px";
-			} else if (changeVert > 900) {
-				changeVert = 900;
-				baddie.style.bottom = changeVert.toString() + "px";
+				baddie.style.bottom = changeVert.toString() + "%";
 			} else {
-				baddie.style.bottom = changeVert.toString() + "px";
+				baddie.style.bottom = changeVert.toString() + "%";
 			}
 
 			/*if (baddie.page === 400) {
