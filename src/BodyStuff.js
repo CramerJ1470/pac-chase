@@ -1,25 +1,19 @@
 import React from "react";
 import "../src/index.css";
-import red from "./red.jpg";
-import blue from "./blue.jpg";
-import green from "./green.jpg";
-import camo from "./camo.jpg";
-import ghost from "./ghost.jpg";
-import cyborg from "./cyborg.jpg";
-import viking from "./viking.jpg";
+
 
 
 
 const buttons = document.querySelectorAll(".ripple");
 const body = document.querySelector("body");
 const randomGuyColors = [
-	red,
-	blue,
-	green,
-	camo,
-	ghost,
-	cyborg,
-	viking,
+	"red",
+	"blue",
+	"green",
+	"camo",	
+	"ghost",
+	"cyborg",
+	"viking",
 	
 ];
 
@@ -47,7 +41,7 @@ const bodyStuff = () => {
 			badGuy.classList.add("badGuy");
 
 			let guyColor = randomGuyColors[Math.floor(Math.random() * 8)];
-			badGuy.style.backgroundImage = `url(${guyColor})`;
+			badGuy.style.backgroundImage = `url(./${guyColor}.png)`;
 			let right = Math.floor(Math.random() * 200) + 700;
 
 			badGuy.style.right = `${right}px`;
