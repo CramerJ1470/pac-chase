@@ -1,12 +1,12 @@
 import React from "react";
 import "../src/index.css";
-import red from "./red.png";
-import blue from "./blue.png";
-import green from "./green.png";
-import camo from "./camo.png";
-import ghost from "./ghost.png";
-import cyborg from "./cyborg.png";
-import viking from "./viking.png";
+import red from "./red.jpg";
+import blue from "./blue.jpg";
+import green from "./green.jpg";
+import camo from "./camo.jpg";
+import ghost from "./ghost.jpg";
+import cyborg from "./cyborg.jpg";
+import viking from "./viking.jpg";
 
 
 
