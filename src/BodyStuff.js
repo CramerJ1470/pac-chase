@@ -1,20 +1,17 @@
 import React from "react";
 import "../src/index.css";
 
-
-
-
 const buttons = document.querySelectorAll(".ripple");
 const body = document.querySelector("body");
 const randomGuyColors = [
 	"red",
 	"blue",
+	"purple",
 	"green",
-	"camo",	
+	"camo",
 	"ghost",
 	"cyborg",
 	"viking",
-	
 ];
 
 const directions = document.getElementById("directions");
@@ -41,11 +38,11 @@ const bodyStuff = () => {
 			badGuy.classList.add("badGuy");
 
 			let guyColor = randomGuyColors[Math.floor(Math.random() * 8)];
-			badGuy.style.backgroundImage = `url("./${guyColor}.jpg")`;
-			let right = Math.floor(Math.random() * 18) + 50;
+			badGuy.style.backgroundImage = `url("${guyColor}.png")`;
+			let right = Math.floor(Math.random() * 55)+50;
 
 			badGuy.style.right = `${right}%`;
-			let bottom = Math.floor(Math.random() * 18) + 30;
+			let bottom = Math.floor(Math.random() * 50) + 20;
 
 			badGuy.style.bottom = `${bottom}%`;
 			badGuy.style.backgroundSize = "cover";
@@ -70,7 +67,7 @@ const bodyStuff = () => {
 
 				let moreThanOneDir = +Math.random().toFixed(2);
 
-				let distance = Math.floor(Math.random() * 200);
+				let distance = Math.floor(Math.random() * 100);
 				if (moreThanOneDir < 0.5) {
 					let dist = distance * Number(vert);
 
@@ -89,14 +86,14 @@ const bodyStuff = () => {
 
 			changeVert = changeVert.slice(0, changeVert.length - 2);
 			changeVert = Number(changeVert) + distance;
-			if (changeVert < 0) {
-				changeVert = 0;
-				baddie.style.bottom = changeVert.toString() + "%";
-			} else if (changeVert > 100) {
+			if (changeVert < 100) {
 				changeVert = 100;
-				baddie.style.bottom = changeVert.toString() + "%";
+				baddie.style.bottom = changeVert.toString() + "px";
+			} else if (changeVert > 900) {
+				changeVert = 900;
+				baddie.style.bottom = changeVert.toString() + "px";
 			} else {
-				baddie.style.bottom = changeVert.toString() + "%";
+				baddie.style.bottom = changeVert.toString() + "px";
 			}
 
 			/*if (baddie.page === 400) {
@@ -171,6 +168,7 @@ const bodyStuff = () => {
 			setTheme();
 			body.classList.add("back", "circle");
 			buttons[0].classList.add("butn");
+			
 
 			body.addEventListener("mousemove", function (e) {
 				moveBadGuys();
@@ -225,7 +223,7 @@ const bodyStuff = () => {
 				console.log(`buttons[0]: `, buttons[0]);
 				setTimeout(() => {
 					body.classList.remove("lightning");
-				}, 250);
+				}, 400);
 				settime();
 				buttons[0].classList.add("button");
 				buttons[0].style.visibility = "visible";
