@@ -6,14 +6,14 @@
 /* If the screen size is 601px wide or more, set the font-size of <div> to 80px */
 @media screen and (min-width: 601px) {
 	div.example {
-	  font-size: 8vh;
+	  font-size: 28px;
 	}
   }
   
   /* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
   @media screen and (max-width: 600px) {
 	button .butn {
-	  font-size: 7px;
+	  font-size: 2px;
 	}
   }
 
@@ -25,7 +25,7 @@ body {
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	height: 80vmin;
+	height: 80vh;
 	overflow: hidden;
 	margin: 0;
 	position: relative;
@@ -54,7 +54,7 @@ button:focus {
 	outline: none;
 }
 
-button .circle {
+button.circle {
 	position: absolute;
 	background-color: rgb(193, 42, 136);
 	width: 20px;
@@ -72,14 +72,14 @@ button .circle {
 	}
 }
 
-button .circle.red {
+button.circle.red {
 	background-color: rgb(187, 49, 255);
 }
 
-button .circle.yellow {
+button.circle.yellow {
 	background-color: rgb(189, 48, 255);
 }
-button .circle.green {
+button.circle.green {
 	background-color: rgb(191, 45, 194);
 }
 
@@ -91,7 +91,7 @@ body.back {
 	background-position: center;
 }
 
-button .butn {
+button.butn {
 	background-color: transparent;
 	border: none;
 	color: #fff;
@@ -141,7 +141,7 @@ body .circle.green {
 	color: rgb(189, 48, 255);
 }
 
-body.lightning {
+body .lightning {
 	background-image: url("/boom-lightning.gif");
 	background-repeat: no-repeat;
 	background-size: auto 100%;
