@@ -12,8 +12,8 @@
   
   /* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
   @media screen and (max-width: 600px) {
-	div.example {
-	  font-size: 3vh;
+	button .butn {
+	  font-size: 7px;
 	}
   }
 
